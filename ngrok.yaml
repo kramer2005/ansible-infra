@@ -1,0 +1,8 @@
+---
+- name: Install Ngrok
+  hosts: local
+  roles:
+    - { role: ngrok, become: yes }
+  tasks:
+    - name: Configure ngrok
+      shell: ngrok config add-authtoken {{ ngrok_authtoken }}

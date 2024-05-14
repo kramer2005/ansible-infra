@@ -1,0 +1,15 @@
+- name: Add GPG Key
+  apt_key:
+    url: https://ngrok-agent.s3.amazonaws.com/ngrok.asc
+    state: present
+
+- name: Add Repository
+  apt_repository:
+    repo: deb https://ngrok-agent.s3.amazonaws.com buster main
+    state: present
+
+- name: Install ngrok
+  apt:
+    name: ngrok
+    state: present
+    update_cache: yes

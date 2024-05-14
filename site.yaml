@@ -1,0 +1,5 @@
+---
+- name: Setup Environment
+  hosts: ngrok
+  roles:
+    - { role: docker, become: yes }

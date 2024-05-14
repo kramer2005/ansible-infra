@@ -22,4 +22,4 @@ jobs:
           playbook: site.yaml
           directory: ./
           options: |
-            --inventory hosts.yml
+            --inventory hosts.yaml

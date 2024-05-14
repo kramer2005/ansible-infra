@@ -1,0 +1,24 @@
+name: Setup Docker
+
+on:
+  # Should run manually
+  workflow_dispatch:
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Todo: Generate the SSH key from the repository secrets
+      - name: Configure SSH key permissions
+        run: chmod 600 ssh/id_ed25519
+
+      - name: Run playbook
+        uses: dawidd6/action-ansible-playbook@v2
+        with:
+          playbook: site.yaml
+          directory: ansible
+          options: |
+            --inventory hosts.yml

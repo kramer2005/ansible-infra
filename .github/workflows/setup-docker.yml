@@ -6,6 +6,7 @@ on:
 
 jobs:
   install:
+    name: Install Docker
     runs-on: ubuntu-latest
 
     steps:
